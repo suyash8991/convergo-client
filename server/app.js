@@ -22,9 +22,10 @@ var publicDir = require('path').join(__dirname,'/public');
 app.use(express.static(publicDir));
 
 app.use(methodOverride("_method"));
-app.get("/",(req,res)=>{
-    res.render('intro.ejs')
-})
+
+intro= require("./routes/homeRoute")
+
+app.use("/",intro)
 
 
 app.listen(2447 , function () {
