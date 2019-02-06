@@ -6,66 +6,51 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">NGO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"
+          ></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                            <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                                <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item active"  value=".float-right">
+                                    <a class="nav-link" href="#">Partner Login<span class="sr-only">(current)</span></a>
+                                  </li>
+                                  </ul>
           </form>
         </div>
       </nav>
-      <%ngos.forEach(function(ngo){ %>
-        
-        <div class="card" style="width: 18rem; margin: 10px ;float:left">
-        <img class="card-img-top" src="images/1.jpeg" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Name:<%= ngo.name%>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <div class="card-body">
-            <a href="/ngo" class="card-link">View Website</a>
+    
+        <div class="container justify-content-center align-items-center">
+        <div class="row">  
+            <%ngos.forEach(function(ngo){ %>
+        <div class="col-sm-6" >
+            <div class="card mb-3">
+                <img class="card-img-top justify-content-center align-items-center" src="images/1.jpeg" height="300" width="500" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text"> <%=ngo.name%></p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <a href="/ngo/<%=ngo.name%>" class="card-link">View website</a>
+                </div>
+              </div>
           </div>
+          <%})%>
+        </div>
       </div>
-      
-    <%})%>
-    <!-- Card -->
-<article class="card animated fadeInLeft">
-  <img class="card-img-top img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
-
-  <div class="card-block">
-    <h4 class="card-title">Animal Farm</h4>
-
-    <h6 class="text-muted">George Orwell</h6>
-
-    <p class="card-text">Tired of their servitude to man, a group of farm animals revolt and establish their own society, only to be betrayed into worse servitude by their leaders, the pigs. This satire addresses the communist philosophy the Soviet Union.</p>
-
-    <a href="#" class="btn btn-primary">Read more</a>
-  </div>
-</article><!-- .end Card ->
+    
+    
 </body>
 </html> 
