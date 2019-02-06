@@ -10,3 +10,19 @@ module.exports.getAll=function(req,res){
         }
     })
 }
+
+module.exports.displayNgo=function(req,res){
+
+ngo.findOne({name:req.params.name},function(err,polo){
+
+    if(err){
+console.log("not found ngo ngoctrlr")
+    }
+    else{
+
+        console.log("ngo "+polo)
+        res.render('ngoPage',{organ:polo})
+    }
+})
+
+}

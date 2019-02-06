@@ -14,5 +14,7 @@ describe("adding ngo",()=>{
         ng.save().then(()=>{
             console.log("success")
         })
+
+        
     })
 })
