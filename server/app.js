@@ -1,7 +1,7 @@
 var express               = require('express');
 var parser                = require('body-parser');
 var mongoose              = require('mongoose');
-var port=2447
+var port=2448
 var methodOverride				= require('method-override');
 
 var passport              = require('passport');
@@ -24,9 +24,15 @@ app.use(express.static(publicDir));
 app.use(methodOverride("_method"));
 
 intro= require("./routes/homeRoute")
-
+ngosRoute=require("./routes/ngosRoute")
 app.use("/",intro)
+app.use("/:ngoName",ngosRoute)
 
+app.post('/dummy',(req,res)=>{
+
+	console.log(req.body)
+	res.send(done)
+})
 app.listen(port , function () {
 	console.log('Site is active on localhost:' + port+'/');
 });

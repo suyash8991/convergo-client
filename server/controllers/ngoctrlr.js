@@ -26,3 +26,7 @@ console.log("not found ngo ngoctrlr")
 })
 
 }
+
+module.exports.donationForm=function(req,res){
+    res.render('donateForm.ejs',{ngoName:req.params.ngoName})
+}
