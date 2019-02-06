@@ -1,7 +1,7 @@
 var express               = require('express');
 var parser                = require('body-parser');
 var mongoose              = require('mongoose');
-
+var port=2447
 var methodOverride				= require('method-override');
 
 var passport              = require('passport');
@@ -27,7 +27,6 @@ intro= require("./routes/homeRoute")
 
 app.use("/",intro)
 
-
-app.listen(2447 , function () {
-	console.log('Site is active on localhost:' + 2355+'/');
+app.listen(port , function () {
+	console.log('Site is active on localhost:' + port+'/');
 });

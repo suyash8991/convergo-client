@@ -11,8 +11,8 @@ router
 // })
 .get(ngoctrlr.getAll)
 router
-.route('/ngo')
-.get((req,res)=>{
-    res.render('ngoPage')
-})
+.route('/ngo/:name')
+.get(ngoctrlr.displayNgo)
+
+
 module.exports=router
