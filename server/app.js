@@ -10,7 +10,7 @@ var passportlocalmongoose = require('passport-local-mongoose');
 app=express()
  
 
-
+require('./models/dbconnection')
 app.set('view engine', 'ejs');
 // app.use("/public" , express.static(dir + '/public'));
 // app.use("/uploads" , express.static(dir + '/uploads'));

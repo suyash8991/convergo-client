@@ -40,15 +40,16 @@
           </form>
         </div>
       </nav>
+      <%ngos.forEach(function(ngo){ %>
           <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="images/1.jpeg" alt="Card image cap">
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text">Name:<%= ngo.name%>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
         <div class="card-body">
             <a href="/ngo" class="card-link">View Website</a>
           </div>
       </div>
-
+    <%})%>
 </body>
 </html> 
