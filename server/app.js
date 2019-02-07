@@ -3,7 +3,7 @@ var parser                = require('body-parser');
 var mongoose              = require('mongoose');
 var port=2450//user
 var methodOverride				= require('method-override');
-
+var multer					=require('multer');
 
 var passport              = require('passport');
 var localstrategy         = require('passport-local');
