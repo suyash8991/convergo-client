@@ -14,22 +14,15 @@ module.exports.getAll=function(req,res){
 }
 
 module.exports.displayNgo=function(req,res){
-    console.log("called in displayNGO ",req.params.name)
-   ngo.findOne({name:req.params.name}).populate('donation').exec((err,polo)=>{
-   
-       if(err){
-           console.log("not found ngo ngoctrlr")
-       }
-       else{
-           
-            console.log("POLO is ",polo)
-           funds=polo.donation
+    ngo.findOne({name:req.params.name} ,(err,doc)=>{
+
+
        
-           res.render('ngoPage',{ngo:polo,funds:funds})
-       }
-   
-   })
-   } 
+        res.render('ngoPage' , {  req : req,ngo:doc })
+    })
+    
+}
+
 
 module.exports.donationForm=function(req,res){
     res.render('donateForm.ejs',{ngoName:req.params.ngoName})

@@ -9,6 +9,7 @@ router
 router
 .route('/:name')
 .get(ngoctrlr.displayNgo)
+
 router
 .route('/:name/Donate')
 .get(ngoctrlr.donationForm)
