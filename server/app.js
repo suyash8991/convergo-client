@@ -44,7 +44,7 @@ app
 })
 app.post('/sample/photo',uploader.single('avatar'),function(req,res,next){
 
-	console.log("wohoo")
+
 	console.log("file name is ",req.file.originalname)
 	res.send("ok")
 })
