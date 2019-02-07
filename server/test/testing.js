@@ -73,3 +73,19 @@ var path=require('path')
 // }
 //     })
 // })
+
+
+// it("assigning fundraiser to ngos",()=>{
+//     ngo.findOne({name:'Ashreyam'},(err,ng)=>{
+//         console.log(ng)
+//         fundRaiser.findOne({title:"loop"},(err,fund)=>{
+//             ng.donation.push(fund._id)
+//             console.log(fund)
+//             ng.save()
+//         })
+
+
+//     })
+
+    
+// })

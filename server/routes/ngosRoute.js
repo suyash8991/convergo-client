@@ -9,6 +9,7 @@ router
 router
 .route('/:name')
 .get(ngoctrlr.displayNgo)
+
 router
 .route('/:name/Donate')
 .get(ngoctrlr.donationForm)
@@ -33,4 +34,9 @@ router
 .get((req,res)=>{
     res.render('about.ejs',{ngo:req.params.name})
 })
+
+router                      //displays fundraiser of particular ngo
+.route('/:name/Fundraiser')
+.get(ngoctrlr.ngofundraiser)
+
 module.exports=router

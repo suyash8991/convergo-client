@@ -40,6 +40,7 @@ app.post('/sample/photo',uploader.single('avatar'),function(req,res,next){
 	console.log("file name is ",req.file.originalname)
 	res.send("ok")
 })
+
 app.post('/dummy',uploader.single('image'),(req,res)=>{
 console.log("NEWWW")
 
