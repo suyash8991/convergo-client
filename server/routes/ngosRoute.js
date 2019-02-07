@@ -16,7 +16,17 @@ router
 .route('/:name/Events')
 .get((req,res)=>{
     res.render('event.ejs',{ngo:req.params.name})
+
 })
+
+router
+.route('/:name/Education')
+.get((req,res)=>{
+    res.render('edu.ejs',{ngo:req.params.name})
+
+})
+
+
 
 router
 .route('/:name/About')
