@@ -14,58 +14,22 @@ module.exports.getAll=function(req,res){
 }
 
 module.exports.displayNgo=function(req,res){
-// console.log("called in displayNGO ",req.params.name)
-ngo.findOne({name:req.params.name}).populate('donation').exec((err,polo)=>{
-
-    if(err){
-        console.log("not found ngo ngoctrlr")
-    }
-    else{
-        funds=[]
-         console.log("POLO is ",polo)
-
-        //  console.log("polo donation",polo.donation)
-        // if(polo.donation==null)
-        // return 
-        // res.send("no")
-         // funds= polo.donation
-        funds = polo.donation.map(function (don) {
-            return don;
-          })
-        s=[0]*funds.length
-        var location='./public/images'
-            
-        fs.readdir(location,(err,files)=>{
-                 if(err){
-                    console.log(err)
-                }
-                
-                for (i=0;i<funds.length;i++)
-                {files.forEach(function(file){
-                    // console.log("FIle name ",file)
-                    // console.log(file," ",i)
-                    fileName=file.replace(path.extname(file),"")
-                     if(fileName==funds[i].imageName)
-                     {
-                         s[i]="".join(location)
-                         console.log("found!!")
-                         
-                     }
-                    
-                    //  console.log(path.extname(file))
-                   
-                })
-            }
-            })
+    console.log("called in displayNGO ",req.params.name)
+   ngo.findOne({name:req.params.name}).populate('donation').exec((err,polo)=>{
+   
+       if(err){
+           console.log("not found ngo ngoctrlr")
+       }
+       else{
+           
+            console.log("POLO is ",polo)
+           funds=polo.donation
        
-
-        console.log("ngo "+polo)
-        console.log("funds of above ",funds)
-        res.render('ngoPage',{ngo:polo,funds:funds,image:s})
-    }
-})
-
-}
+           res.render('ngoPage',{ngo:polo,funds:funds})
+       }
+   
+   })
+   } 
 
 module.exports.donationForm=function(req,res){
     res.render('donateForm.ejs',{ngoName:req.params.ngoName})
