@@ -90,3 +90,7 @@ app.get('/funds',ngoctrlr.sendFinishedFunraisers)
 app.listen(port , function () {
 	console.log('Site is active on localhost:' + port+'/');
 });
+
+app.get('/school/upload',(req,res)=>{
+	res.render('upload')
+})
