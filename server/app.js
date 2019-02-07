@@ -84,5 +84,5 @@ app.listen(port , function () {
 });
 
 app.get('/school/upload',(req,res)=>{
-	res.render('upload')
+	res.render('page2')
 })
