@@ -10,6 +10,7 @@ var passport              = require('passport');
 var localstrategy         = require('passport-local');
 var passportlocalmongoose = require('passport-local-mongoose');
 app=express()
+var ngo=require('./models/ngo')
  var ngoctrlr=require('./controllers/ngoctrlr')
 var fundRaiser=require('./models/fundRaiser')
 require('./models/dbconnection')
@@ -29,6 +30,13 @@ intro= require("./routes/homeRoute")
 ngosRoute=require("./routes/ngosRoute")
 app.use("/",intro)
 app.use("/ngo",ngosRoute)
+app.use((req,res,next)=>{
+	ngo.find({},(err,ngo)=>{
+		res.locals.ngo=ngo;
+		next();
+	})
+})
+
 
 app
 .get('/sample/photo',(req,res)=>{

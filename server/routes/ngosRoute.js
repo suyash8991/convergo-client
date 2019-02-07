@@ -28,6 +28,17 @@ router
 })
 
 
+router
+.route('/:name/login')
+.get((req,res)=>{
+    res.render('signin')}
+    )
+
+router
+.route('/:name/register')
+.get((req,res)=>{
+    res.render('register',{name:req.params.name})
+})
 
 router
 .route('/:name/About')
