@@ -16,8 +16,7 @@ router
 router
 .route('/:name/Events')
 .get((req,res)=>{
-    res.render('event.ejs',{ngo:req.params.name})
-
+    res.render('event.ejs',{ngoName:req.params.name})
 })
 
 router

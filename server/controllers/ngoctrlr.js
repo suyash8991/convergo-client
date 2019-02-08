@@ -3,6 +3,8 @@ var funds=require("../models/fundRaiser")
 var fs=require('fs');
 var path=require('path')
 module.exports.getAll=function(req,res){
+
+    console.log("her i am called in big one ",req.params)
     ngo.find({},function(err,ngos){
         if(err){
             console.log("error in ngo")
@@ -14,18 +16,21 @@ module.exports.getAll=function(req,res){
 }
 
 module.exports.displayNgo=function(req,res){
-    ngo.findOne({name:req.params.name} ,(err,doc)=>{
+    ngoName=req.params.name
+     console.log("home site of  Ngo name is ",ngoName," ",req.params)
+    ngo.findOne({name:ngoName} ,(err,doc)=>{
 
 
        
-        res.render('ngoPage' , {  req : req,ngo:doc })
+        res.render('ngoPage' , {  req : req,ngo:doc,ngoName:ngoName })
     })
     
 }
 
 
 module.exports.donationForm=function(req,res){
-    res.render('donateForm.ejs',{ngoName:req.params.ngoName})
+    console.log("donationform ",req.params.name," ",req.params)
+    res.render('donateForm.ejs',{ngoName:req.params.name})
 }
 
 module.exports.sendFinishedFunraisers=function(req,res){

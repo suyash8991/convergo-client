@@ -48,7 +48,7 @@ app.post('/sample/photo',uploader.single('avatar'),function(req,res,next){
 	console.log("file name is ",req.file.originalname)
 	res.send("ok")
 })
-
+var ngo=require('./models/ngo')
 app.post('/dummy',uploader.single('image'),(req,res)=>{
 console.log("NEWWW")
 
@@ -86,11 +86,17 @@ console.log(req.body)
 	res.send({done:"done"})
 })
 
+app.use((req,res,next)=>{
+	ngo.find({},(err,ngo)=>{
+		res.locals.ngo=ngo;
+		next();
+	})
+})
 app.get('/funds',ngoctrlr.sendFinishedFunraisers)
 app.listen(port , function () {
 	console.log('Site is active on localhost:' + port+'/');
 });
 
 app.get('/school/upload',(req,res)=>{
-	res.render('page2')
+	res.render('upload')
 })
